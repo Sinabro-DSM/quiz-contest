@@ -1,0 +1,25 @@
+{
+  "name": "quiz-contest",
+  "version": "1.0.0",
+  "description": "quiz contest",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sinabro-DSM/quiz-contest.git"
+  },
+  "author": "sinabro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sinabro-DSM/quiz-contest/issues"
+  },
+  "homepage": "https://github.com/Sinabro-DSM/quiz-contest#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "mongoose": "^5.2.18",
+    "redis": "^2.8.0",
+    "socket.io": "^2.1.1"
+  }
+}
