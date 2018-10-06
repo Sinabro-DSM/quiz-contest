@@ -17,9 +17,12 @@
   },
   "homepage": "https://github.com/Sinabro-DSM/quiz-contest#readme",
   "dependencies": {
+    "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "mongoose": "^5.2.18",
+    "path": "^0.12.7",
     "redis": "^2.8.0",
-    "socket.io": "^2.1.1"
+    "socket.io": "^2.1.1",
+    "swagger-ui-dist": "^3.19.2"
   }
 }

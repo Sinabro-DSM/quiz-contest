@@ -1,0 +1,90 @@
+---
+  swagger: "2.0"
+  info: 
+    version: "1.0.0"
+    title: "퀴즈 대회"
+    description: "10월 20일 동아리 경진대회 퀴즈 대회 api"
+    termsOfService: "http://localhost:3000"
+    contact: 
+      name: "Sinabro"
+    license: 
+      name: "MIT"
+  host: "localhost:3000"
+  basePath: "/docs"
+  schemes: 
+    - "http"
+
+  paths: 
+    /:
+      get:
+        description: "닉네임 입력 창 접속"
+        operationId: enterInputNickname
+        responses:
+          "200":
+            description: "response"
+        
+    /stand: 
+      post:
+        description: "대기실 입장"
+        operationId: enterWaitingRoom
+        parameters:
+          -
+            name: "nickname"
+            in: "body"
+            description: "닉네임 입력 후 전송"
+            schema: 
+              $ref: "#/definitions/Nickname"
+        responses:
+          "200":
+            description: "stand response"
+            schema: 
+              $ref: "#/definitions/Nickname"
+          default: 
+            description: "unexpected error"
+            schema: 
+              $ref: "#/definitions/ErrorModel"
+
+    /admin:
+      get:
+        description: "관리자 룸"
+        operationId: enterAdminRoom
+        responses:
+          "200":
+            description: "response"
+
+    /personalInfo:
+      post:
+        description: "이름, 전화번호 입력"
+        operationId: inputPersonInfo
+        parameters:
+          -
+            name: "personal information"
+            in: "body"
+            description: "우승자 개인 정보 입력 후 전송"
+            schema: 
+              $ref: "#/definitions/PersonalInfo"
+        responses:
+          "200":
+            description: "response"
+
+            
+  definitions: 
+    Nickname:
+      type: "object"
+      properties:
+        nickname:
+          type: "string"
+
+    PersonalInfo:
+      type: "object"
+      properties:
+        name:
+          type: "string"
+        phoneNum:
+          type: "string"
+
+    ErrorModel: 
+      type: "object"
+      properties: 
+        message: 
+          type: "string"
