@@ -15,18 +15,11 @@
     - "http"
 
   paths: 
-    /:
-      get:
-        description: "닉네임 입력 창 접속"
-        operationId: enterInputNickname
-        responses:
-          "200":
-            description: "response"
         
-    /stand: 
+    /nickname: 
       post:
-        description: "대기실 입장"
-        operationId: enterWaitingRoom
+        description: "닉네임 전송"
+        operationId: postNickname
         parameters:
           -
             name: "nickname"
@@ -44,14 +37,6 @@
             schema: 
               $ref: "#/definitions/ErrorModel"
 
-    /admin:
-      get:
-        description: "관리자 룸"
-        operationId: enterAdminRoom
-        responses:
-          "200":
-            description: "response"
-
     /personalInfo:
       post:
         description: "이름, 전화번호 입력"
@@ -63,6 +48,14 @@
             description: "우승자 개인 정보 입력 후 전송"
             schema: 
               $ref: "#/definitions/PersonalInfo"
+        responses:
+          "200":
+            description: "response"
+
+    /game:
+      get:
+        description: "게임 시작"
+        operationId: gameStart
         responses:
           "200":
             description: "response"
