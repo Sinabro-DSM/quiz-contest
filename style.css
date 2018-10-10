@@ -1,0 +1,46 @@
+body {
+    margin: 0;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-weight: 400;
+    font-size: 18pt;
+    color: #707070;
+}
+
+#header {
+    margin: 0;
+    padding: 20px 20px;
+    text-align: center;
+    box-shadow: 0 3px 3px #70707050;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-weight: 700;
+    font-size: 25pt;
+    color: #707070;
+}
+
+#waiting-content {
+    display: flex;
+}
+
+#waiting {
+    flex: 1;
+}
+
+#warning {
+    flex: 1;
+    margin: 0;
+    padding: 40px 20px;
+}
+
+#warning-icon {
+    color: rgb(255, 217, 0);
+}
+
+#warning-header {
+    font-size: 20pt;
+    font-weight: 600;
+    text-align: center
+}
+
+#warning-content {
+    padding: 20px 40px;
+}
