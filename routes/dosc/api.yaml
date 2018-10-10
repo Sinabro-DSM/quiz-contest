@@ -16,7 +16,7 @@
 
   paths: 
         
-    /nickname: 
+    /client/nickname: 
       post:
         description: "닉네임 전송"
         operationId: postNickname
@@ -37,7 +37,7 @@
             schema: 
               $ref: "#/definitions/ErrorModel"
 
-    /personalInfo:
+    /client/personalInfo:
       post:
         description: "이름, 전화번호 입력"
         operationId: inputPersonInfo
@@ -52,7 +52,7 @@
           "200":
             description: "response"
 
-    /game:
+    /admin/game:
       get:
         description: "게임 시작"
         operationId: gameStart
