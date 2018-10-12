@@ -2,7 +2,7 @@ body {
     margin: 0;
     font-family: 'Nanum Gothic', sans-serif;
     font-weight: 400;
-    font-size: 18pt;
+    font-size: 15pt;
     color: #707070;
 }
 
@@ -43,4 +43,82 @@ body {
 
 #warning-content {
     padding: 20px 40px;
+}
+
+#nickname-form {
+    padding: 20px 40px;
+    float: right;
+}
+
+#waiting-list {
+    margin: 60px 40px 0px 20px;
+}
+
+#score {
+    margin: 20px 40px;
+}
+
+#QuestionNumber {
+    margin-top: -40px;
+    text-align: center;
+    font-family: 'Pacifico', cursive;
+    font-size: 40px;
+    color: #979797;
+    text-shadow: -2px 0 #707070, 0 2px #707070,
+    2px 0 #707070, 0 -2px #707070;
+}
+
+#Question {
+    margin: -30px 40px;
+    padding: 30px 20px;
+    background-color: #70707050;
+    border-top: 2px solid #979797;
+}
+
+#multipleAnswers {
+    margin: 50px 35px;
+    display: flex;
+}
+
+#explanation {
+    padding: 30px 20px;
+    background-color: #70707050;
+    border-top: 2px solid #979797;
+    margin: -350px 40px;
+    display: none;
+}
+
+#wrongAnswer {
+    text-align: center;
+    font-family: 'Righteous', cursive;
+    font-size: 500px;
+    color: #FF000050;
+    margin-top: -300px;
+    display: none;
+}
+
+#rightAnswer {
+    text-align: center;
+    font-family: 'Righteous', cursive;
+    font-size: 500px;
+    color: #00740050;
+    margin-top: -300px;
+    display: none;
+}
+
+.user-nickname {
+    padding: 20px 40px;
+    border-bottom: 1px solid #70707050;
+}
+
+.multipleAnswer {
+    border: none;
+    background-color: #70707050;
+    padding: 20px 20px;
+    color: #707070;
+    flex: 1;
+    font-size: 20px;
+    margin: 0 5px;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-weight: 400;
 }
