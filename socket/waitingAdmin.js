@@ -7,9 +7,10 @@ const init = async (waitingAdminSocket, waitingIO, redisClient) => {
     
     try {
         await redisClient.select(1);
-        let code =Math.random()*(10000-1000)+1000;
+        let code =Math.floor(Math.random()*(10000-1000))+1000;
         await redisClient.set('code',code);
         console.log(code);
+        waitingAdminSocket.emit('code',{code: code});
         waitingAdminSocket.emit('waitingCount', {count: countWaiting(waitingIO)});
     } catch(e) {
         console.error(e);
@@ -26,7 +27,7 @@ const init = async (waitingAdminSocket, waitingIO, redisClient) => {
 
 const destroy = () => {};
 
-const gameStart = ()=>{
+const gameStart = (waitingIO)=>{
     waitingIO.emit('Start');
 };
 

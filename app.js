@@ -35,7 +35,7 @@ gameAdminIO.on('connection',(gameAdminSocket)=>{
 waitingAdminIO.on('connection', (waitingAdminSocket) => {
     console.log('waitingAdmin connection');
     waitingAdminModule.init(waitingAdminSocket, waitingIO, redisClient);
-    waitingAdminSocket.on('start', waitingAdminModule.gameStart());
+    waitingAdminSocket.on('start', () => waitingAdminModule.gameStart(waitingIO));
     waitingAdminSocket.on('disconnect', () => waitingAdminModule.destroy());
 });
 
