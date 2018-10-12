@@ -1,4 +1,4 @@
-const init = ()=>{
+const init = async (gameAdminSocket, waitingIO, redisClient)=>{
 
 };
 

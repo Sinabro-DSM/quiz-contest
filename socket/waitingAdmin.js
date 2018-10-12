@@ -13,9 +13,14 @@ const init = async (waitingAdminSocket, waitingIO, redisClient) => {
 
 const destroy = () => {};
 
+const gameStart = ()=>{
+    waitingIO.emit('Start');
+};
+
 const countWaiting = (waitingIO) => Object.keys(waitingIO.connected).length;
 
 module.exports = {
     init,
     destroy,
+    gameStart,
 }
