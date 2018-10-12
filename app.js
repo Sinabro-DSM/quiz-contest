@@ -8,6 +8,7 @@ const redis = require('redis');
 const redisClient = redis.createClient(6379, 'localhost');
 redisClient.set = promisify(redisClient.set);
 redisClient.get = promisify(redisClient.get);
+redisClient.keys = promisify(redisClient.keys);
 redisClient.select = promisify(redisClient.select);
 redisClient.flushdb = promisify(redisClient.flushdb);
 
