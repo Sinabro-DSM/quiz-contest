@@ -9,8 +9,10 @@ const redisClient = redis.createClient(6379, 'localhost');
 redisClient.set = promisify(redisClient.set);
 redisClient.get = promisify(redisClient.get);
 redisClient.keys = promisify(redisClient.keys);
+redisClient.rpush = promisify(redisClient.rpush);
+redisClient.lrange = promisify(redisClient.lrange);
 redisClient.select = promisify(redisClient.select);
-redisClient.flushdb = promisify(redisClient.flushdb);
+redisClient.flushall = promisify(redisClient.flushall);
 
 
 //socket.io
@@ -38,8 +40,8 @@ waitingAdminIO.on('connection', (waitingAdminSocket) => {
 
 waitingIO.on('connection', (waitingSocket) => {
     console.log('connection');
-    waitingModule.init(waitingSocket, adminIO, redisClient);
-    waitingSocket.on('disconnect', () => waitingModule.destroy(adminIO));
+    waitingModule.init(waitingSocket, waitingAdminIO, redisClient);
+    waitingSocket.on('disconnect', () => waitingModule.destroy(waitingAdminIO));
 });
 
 participantIO.on('connection', (participantSocket) => {
