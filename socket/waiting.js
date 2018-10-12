@@ -7,8 +7,9 @@ const init = async (waitingSocket, adminIO, redisClient) => {
         socketId: socketId[1],
         score: 0
     }
-
+ 
     try {
+        await redisClient.select(0);
         await redisClient.set(nickname, JSON.stringify(value));
         const reply = await redisClient.get(nickname);
         console.log(reply);

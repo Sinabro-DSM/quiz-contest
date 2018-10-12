@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const ctrl = require('./client.ctrl');
 
-router.post('/nickname', ctrl.nickname)
+router.post('/login', ctrl.login)
     .post('/personalInfo', ctrl.personalInfo);
 
-module.exports = router;
+module.exports = router; 

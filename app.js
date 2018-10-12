@@ -8,21 +8,31 @@ const redis = require('redis');
 const redisClient = redis.createClient(6379, 'localhost');
 redisClient.set = promisify(redisClient.set);
 redisClient.get = promisify(redisClient.get);
+redisClient.select = promisify(redisClient.select);
+redisClient.flushdb = promisify(redisClient.flushdb);
 
 
 //socket.io
-const adminModule= require('./socket/admin');
+const gameAdminModule= require('./socket/gameAdmin');
+const waitingAdminModule= require('./socket/waitingAdmin');
 const waitingModule= require('./socket/waiting');
 const participantModule = require('./socket/participant');
 
-const adminIO = io.of('/admin');
+const gameAdminIO = io.of('/gameAdmin');
+const waitingAdminIO = io.of('/waitingAdmin');
 const waitingIO = io.of('/waiting');
 const participantIO = io.of('/participant');
 
-adminIO.on('connection', (adminSocket) => {
-    console.log('admin connection');
-    adminModule.init(adminSocket, waitingIO, redisClient);
-    adminSocket.on('disconnect', () => adminModule.destroy());
+gameAdminIO.on('connection',(gameAdminSocket)=>{
+    console.log('gameAdmin connection');
+    gameAdminModule.init();
+    gameAdminSocket.on('disconnect',()=>gameAdminModule.destroy());
+})
+
+waitingAdminIO.on('connection', (waitingAdminSocket) => {
+    console.log('waitingAdmin connection');
+    waitingAdminModule.init(waitingAdminSocket, waitingIO, redisClient);
+    waitingAdminSocket.on('disconnect', () => waitingAdminModule.destroy());
 });
 
 waitingIO.on('connection', (waitingSocket) => {
@@ -39,6 +49,7 @@ participantIO.on('connection', (participantSocket) => {
 
 //api
 app.use((req, res, next) => {
+    req.cache=redisClient;
     req.io = io;
     next();
 });

@@ -2,9 +2,17 @@ const fs = require('fs');
 const {promisify} = require('util');
 const fwrite = promisify(fs.appendFile);
 
-const nickname = (req, res) => {
-    const {nickname} = req.body;
-
+const login = (req, res) => {
+    const {nickname, code} = req.body;
+    if(authCode(code,req.cache) && authNickname(nickname,req.cache)){
+        return res.status(200).end();
+    }
+    else if(!authCode(code,req.cache)){
+        return res.status(404).json({"messege":"false code"}).end();
+    }
+    else {
+        return res.status(404).json({"messege":"already exist nickname"}).end();
+    }
 };
 
 const personalInfo = async (req, res) => {
@@ -23,7 +31,38 @@ const personalInfo = async (req, res) => {
 
 };
 
+const authCode = async (code,redisClient)=>{
+    try{
+        await redisClient.select(1);
+        const authCode = await redisClient.get('code');
+        if(code==authCode){
+            console.log('success');
+            return true;
+        }
+    }
+    catch(e){
+        console.error(e);
+        return false;
+    }
+}
+
+const authNickname = async(nickname,redisClient)=>{
+    try{
+        await redisClient.select(0);
+        const keys = await redisClient.keys('*');
+        // for(let i=0;i<keys.length;i++){
+        //     if(nickname==keys) return false;
+        // }
+        // return true;
+        return keys.some(v=>v==nickname);
+    }
+    catch(e){
+        console.log(e);
+        return false;
+    }
+}
+
 module.exports = {
-    nickname,
+    login,
     personalInfo,
 };
