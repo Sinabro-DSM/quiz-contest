@@ -2,16 +2,25 @@ const fs = require('fs');
 const {promisify} = require('util');
 const fwrite = promisify(fs.appendFile);
 
-const login = (req, res) => {
+const login = async(req, res) => {
     const {nickname, code} = req.body;
-    if(authCode(code,req.cache) && authNickname(nickname,req.cache)){
-        return res.status(200).end();
-    }
-    else if(!authCode(code,req.cache)){
-        return res.status(404).json({"messege":"false code"}).end();
-    }
-    else {
-        return res.status(404).json({"messege":"already exist nickname"}).end();
+
+    try {
+        const authCodeResult = await authCode(code, req.cache);
+        const authNicknameResult = await authNickname(nickname, req.cache);
+
+        if(authCodeResult == true && authNicknameResult == true){
+            return res.status(200).end();
+        }
+        else if(authCodeResult == false){
+            return res.status(404).json({"messege":"false code"}).end();
+        }
+        else {
+            return res.status(404).json({"messege":"already exist nickname"}).end();
+        }
+    } catch(e) {
+        console.error(e);
+        return res.status(500).end();
     }
 };
 
@@ -38,6 +47,8 @@ const authCode = async (code,redisClient)=>{
         if(code==authCode){
             console.log('success');
             return true;
+        } else {
+            return false;
         }
     }
     catch(e){
@@ -47,19 +58,15 @@ const authCode = async (code,redisClient)=>{
 }
 
 const authNickname = async(nickname,redisClient)=>{
-    try{
-        await redisClient.select(0);
-        const keys = await redisClient.keys('*');
-        // for(let i=0;i<keys.length;i++){
-        //     if(nickname==keys) return false;
-        // }
-        // return true;
-        return keys.some(v=>v==nickname);
-    }
-    catch(e){
-        console.log(e);
-        return false;
-    }
+        try{
+            await redisClient.select(0);
+            const keys = await redisClient.keys('*');
+            return keys.some(v=>v==nickname);
+        }
+        catch(e){
+            console.log(e);
+            return false;
+        }
 }
 
 module.exports = {
