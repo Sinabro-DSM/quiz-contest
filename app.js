@@ -5,6 +5,7 @@ const io = require('socket.io')(server);
 const {promisify}= require('util');
 const path = require('path'); 
 const redis = require('redis');
+const fs = require('fs');
 const redisClient = redis.createClient(6379, 'localhost');
 redisClient.set = promisify(redisClient.set);
 redisClient.get = promisify(redisClient.get);
@@ -28,7 +29,8 @@ const participantIO = io.of('/participant');
 
 gameAdminIO.on('connection',(gameAdminSocket)=>{
     console.log('gameAdmin connection');
-    gameAdminModule.init();
+    gameAdminModule.init(gameAdminSocket,gameAdminIO,redisClient);
+    gameAdminSocket.on('QChange',()=>gameAdminModule.questionChange(gameAdminSocket,gameAdminIO,redisClient,fs));
     gameAdminSocket.on('disconnect',()=>gameAdminModule.destroy());
 })
 
