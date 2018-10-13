@@ -9,6 +9,9 @@ const fs = require('fs');
 const redisClient = redis.createClient(6379, 'localhost');
 redisClient.set = promisify(redisClient.set);
 redisClient.get = promisify(redisClient.get);
+redisClient.hmset = promisify(redisClient.hmset);
+redisClient.hmget = promisify(redisClient.hmget);
+redisClient.hgetall = promisify(redisClient.hgetall);
 redisClient.keys = promisify(redisClient.keys);
 redisClient.rpush = promisify(redisClient.rpush);
 redisClient.lrange = promisify(redisClient.lrange);
@@ -43,12 +46,13 @@ waitingAdminIO.on('connection', (waitingAdminSocket) => {
 
 waitingIO.on('connection', (waitingSocket) => {
     console.log('connection');
-    waitingModule.init(waitingSocket, waitingAdminIO, redisClient);
+    waitingModule.init(waitingAdminIO);
     waitingSocket.on('disconnect', () => waitingModule.destroy(waitingAdminIO));
 });
 
 participantIO.on('connection', (participantSocket) => {
     participantModule.init(participantSocket);
+    participantSocket.on('correctReply', (data) => participantModule.correctReply(data, participantSocket, redisClient)); //data: 몇 번 문제인지
     participantSocket.on('disconnect', () => participantModule.destroy());
 });
 

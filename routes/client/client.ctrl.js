@@ -4,15 +4,25 @@ const fwrite = promisify(fs.appendFile);
 
 const login = async(req, res) => {
     const {nickname, code} = req.body;
+    const {remoteAddress} = req.connection;
+
+    const value = {
+        nickname,
+        ip: remoteAddress,
+        score: 0
+    }
 
     try {
-        const authCodeResult = await authCode(code, req.cache);
-        const authNicknameResult = await authNickname(nickname, req.cache);
+        const isCodeWrongVal = await isCodeWrong(code, req.cache);
+        const isExistNicknameVal = await isExistNickname(nickname, remoteAddress, req.cache);
 
-        if(authCodeResult == true && authNicknameResult == true){
+        if(isCodeWrongVal == false && isExistNicknameVal == false){
+            await req.cache.select(0);
+            await req.cache.hmset(remoteAddress, value);
+
             return res.status(200).end();
         }
-        else if(authCodeResult == false){
+        else if(isCodeWrongVal == true){
             return res.status(404).json({"messege":"false code"}).end();
         }
         else {
@@ -40,34 +50,41 @@ const personalInfo = async (req, res) => {
 
 };
 
-const authCode = async (code,redisClient)=>{
+const isCodeWrong = async(code, redisClient) => {
     try{
         await redisClient.select(1);
         const authCode = await redisClient.get('code');
         if(code==authCode){
             console.log('success');
-            return true;
-        } else {
             return false;
+        } else {
+            return true;
         }
     }
     catch(e){
         console.error(e);
-        return false;
+        return true;
     }
-}
+};
 
-const authNickname = async(nickname,redisClient)=>{
+const isExistNickname = async(nickname, ip, redisClient) => {
         try{
             await redisClient.select(0);
             const keys = await redisClient.keys('*');
-            return keys.some(v=>v==nickname);
+
+            return keys.some(async(v) => {
+                const result = await redisClient.hmget(nickname, v);
+                if(nickname == result.nickname) 
+                    return true;
+                else 
+                    return false;
+            });
         }
         catch(e){
             console.log(e);
-            return false;
+            return true;
         }
-}
+};
 
 module.exports = {
     login,

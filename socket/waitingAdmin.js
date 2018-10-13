@@ -6,10 +6,13 @@ const init = async (waitingAdminSocket, waitingIO, redisClient) => {
     }
     
     try {
-        await redisClient.select(1);
         let code =Math.floor(Math.random()*(10000-1000))+1000;
+
+        await redisClient.select(1);
         await redisClient.set('code',code);
+
         console.log(code);
+
         waitingAdminSocket.emit('code',{code: code});
         waitingAdminSocket.emit('waitingCount', {count: countWaiting(waitingIO)});
     } catch(e) {
@@ -18,10 +21,18 @@ const init = async (waitingAdminSocket, waitingIO, redisClient) => {
 
     try {
         const arr = shuffle(50);
-        await redisClient.select(2);
+        await redisClient.select(1);
         arr.forEach(i => redisClient.rpush('question', i.toString()));
     } catch(e) {
-        console.log(e);
+        console.error(e);
+    }
+
+    try {
+        const obj = initialSetting();
+        await redisClient.select(1);
+        await redisClient.hmset('answerSeq', obj);
+    } catch(e) {
+        console.error(e);
     }
 };
 
@@ -44,6 +55,14 @@ const shuffle = (num) => {
         arr[rand] = temp;
     }
     return arr;
+}
+
+const initialSetting = () => {
+    const obj = {};
+    for(let i=1; i<=10; i++)
+        obj[i] = 0;
+    
+    return obj;
 }
 
 const countWaiting = (waitingIO) => Object.keys(waitingIO.connected).length;
