@@ -1,12 +1,12 @@
 const init = async (gameAdminSocket, gameAdminIO, redisClient)=>{
     const QNumber =0;
-    await redisClient.select(2);
+    await redisClient.select(1);
     await redisClient.set('QNumber',QNumber);
 };
 
 const questionChange = async (gameAdminSocket,gameAdminIO,redisClient,fs)=>{
     try{
-        await redisClient.select(2);
+        await redisClient.select(1);
         const QNumber = Number(await redisClient.get('QNumber'));
         const question = fs.readFileSync('./question/question_solution.txt');
         const array = question.toString().split("\n");
