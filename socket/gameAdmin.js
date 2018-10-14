@@ -1,4 +1,4 @@
-const init = async (gameAdminSocket, gameAdminIO, redisClient)=>{
+const init = async (redisClient)=>{
     const QNumber =0;
     await redisClient.select(1);
     await redisClient.set('QNumber',QNumber);

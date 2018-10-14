@@ -32,7 +32,7 @@ const participantIO = io.of('/participant');
 
 gameAdminIO.on('connection',(gameAdminSocket)=>{
     console.log('gameAdmin connection');
-    gameAdminModule.init(gameAdminSocket,gameAdminIO,redisClient);
+    gameAdminModule.init(redisClient);
     gameAdminSocket.on('QChange',()=>gameAdminModule.questionChange(gameAdminSocket,gameAdminIO,redisClient,fs));
     gameAdminSocket.on('disconnect',()=>gameAdminModule.destroy());
 })
@@ -51,8 +51,9 @@ waitingIO.on('connection', (waitingSocket) => {
 });
 
 participantIO.on('connection', (participantSocket) => {
-    participantModule.init(participantSocket);
-    participantSocket.on('correctReply', (data) => participantModule.correctReply(data, participantSocket, redisClient)); //data: 몇 번 문제인지
+    participantModule.init(participantSocket, redisClient);
+    participantSocket.on('correctReply', (data) => participantModule.correctReply(data, participantSocket, participantIO, redisClient)); //data: 몇 번 문제인지
+    participantSocket.on('incorrectReply', (data) => participantModule.incorrectReply(data, participantSocket, participantIO, redisClient));
     participantSocket.on('disconnect', () => participantModule.destroy());
 });
 
