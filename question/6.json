@@ -1,0 +1,9 @@
+{
+    "question": "다음 중 단축키의 기능이 ‘작업 전환’인 Windows의 바로 가기 키를 고르시오.",
+    "1": "Ctrl + F4",
+    "2": "Ctrl + C",
+    "3": "Alt + Tap",
+    "4": "Alt + F4",
+    "answer": "3",
+    "solution": "기능이 ‘작업 전환’인 Windows의 바로 가기 키는 Alt + Tap 입니다."
+}
