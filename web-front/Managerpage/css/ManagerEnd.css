@@ -1,0 +1,128 @@
+.body {
+    margin: 0px;
+    height: 100vh;
+}
+
+#header {
+    height: 75.5px;
+}
+
+#header-basics {
+    width: 100%;
+    height: 100%;
+    border-bottom: solid #A8A8A8 1px;
+}
+
+#header-logo {
+    padding-left: 43.5%; 
+    padding-top: 19px; 
+    display: inline-block;
+    font-family: "나눔고딕";
+    font-size: 25pt;
+    color: #707070;
+}
+
+#header-Manager {
+    padding-left: 3px;
+    font-family: "나눔고딕";
+    font-size: 12pt;
+    color: #707070;
+}
+
+#ranker-box {
+    display: inline-block;
+    float: left;
+    width: 660px;
+    height: 540px;
+}
+
+#waiting-box {
+    display: inline-block;
+    float: right;
+    width: 660px;
+    height: 540px;
+}
+
+#ranker-title {
+    text-align: center;
+    color: #7E7E7E;
+    font-family: "나눔고딕";
+    font-weight: 500;
+    font-size: 20pt;
+    padding: 25px 0px 30px 0px;
+}
+
+.ranker-who { 
+    display: inline-block;
+    width: 340px;
+    height: 40px;
+    margin-left: 10px;
+    border-bottom: solid #bbbbbb 1px;
+    font-family: "나눔고딕";
+    font-size: 15pt;
+    color: #7E7E7E;
+}
+
+#ranker-left-button {
+    margin: 40px 0px 0px 100px;
+    width: 40px;
+    height: 40px;
+}
+
+#ranker-right-button {
+    float: right;
+    margin: 40px 110px 0px 0px;
+    width: 40px;
+    height: 40px;
+}
+
+#waiting-title {
+    text-align: center;
+    color: #7E7E7E;
+    font-family: "나눔고딕";
+    font-weight: 500;
+    font-size: 20pt;
+    padding-top: 30px; 
+}
+
+#waiting-main-box {
+    width: 340px;
+    height: 390px;
+    border: solid #F2F2F2 2px;
+    margin: 30px 0px 0px 150px; 
+}
+
+#waiting-box-title {
+    text-align: center;
+    font-family: "나눔고딕";
+    font-size: 20pt;
+    font-weight: 400;
+    color: #7E7E7E;
+    margin-top: 25px;
+}
+
+#watitng-box-member {
+    text-align: center;
+    font-family: "나눔고딕";
+    font-size: 20pt;
+    font-weight: 400;
+    color: #AAAAAA;
+    margin-top: 110px;
+}
+
+#waiting-return-box {
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    font-family: "나눔고딕";
+    font-size: 15pt;
+    font-weight: 400;
+    color: white;
+    background-color: #AAAAAA;
+    border: solid #BFBFBF 1px;
+    margin: 110px 0px 0px 70px;
+}
+
+#final-ranker-list {
+    margin-left: 110px;
+}

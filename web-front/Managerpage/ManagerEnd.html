@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" text="text/css" href="css/ManagerEnd.css" />
+    <title>퀴즈대회: 대회 종료</title>
+</head>
+<body>
+    <div>
+        <div id="header">
+            <div id="header-basics">
+                <div id="header-logo">퀴즈대회</div>
+                <div id="header-Manager">관리자</div>
+            </div>
+        </div>
+        <div id="ranker-box">
+            <div id="ranker-title">참가자 최종 순위</div>
+            <ol id="final-ranker-list">
+            </ol>
+            <input type="image" id="ranker-left-button" src="./img/left.png" />
+            <input type="image" id="ranker-right-button" src="./img/right.png" />
+        </div>
+        <div id="waiting-box">
+            <div id="waiting-title">대기열로 돌아가기</div>
+            <div id="waiting-main-box">
+                <div id="waiting-box-title">대기실 대기자</div>
+                <div id="watitng-box-member"> 명</div>
+                <input type="button" id="waiting-return-box" value="돌아가기" />
+            </div>
+        </div>
+    </div>
+    <script src="./js/ManangerEnd.js"></script>
+</body>
+</html>

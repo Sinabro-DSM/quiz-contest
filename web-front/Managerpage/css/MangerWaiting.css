@@ -1,0 +1,99 @@
+.body {
+    margin: 0px;
+}
+
+#header {
+    height: 75.5px;
+}
+
+#main-box {
+    padding-left: 26%;
+    width: 600px;
+    height: 490px;
+}
+
+#header-basics {
+    width: 100%;
+    height: 100%;
+    border-bottom: solid #A8A8A8 1px;
+}
+
+#header-logo {
+    padding-left: 43.5%; 
+    padding-top: 19px; 
+    display: inline-block;
+    font-family: "나눔고딕";
+    font-size: 25pt;
+    color: #707070;
+}
+
+#header-Manager {
+    padding-left: 3px;
+    font-family: "나눔고딕";
+    font-size: 12pt;
+    color: #707070;
+}
+
+#waiting-box {
+    width: 100%;
+    height: 443px;
+    margin-top: 50px;
+    border: solid #F2F2F2 2px; 
+}
+
+#waiting-writing {
+    position: relative;
+    top: 22px;
+    text-align: center;
+    font-family: "나눔고딕";
+    font-weight: 500;
+    font-size: 30pt;
+    color: #A8A8A8;
+}
+
+#waiting-number {
+    position: relative;
+    top: 90px;
+    text-align: center;
+    font-family: "나눔고딕";
+    font-weight: 500;
+    font-size: 30pt;
+    color: #A8A8A8;
+}
+
+#waiting-code {
+    position: relative;
+    top: 150px;
+    text-align: center;
+    font-family: "나눔고딕";
+    font-weight: 500;
+    font-size: 25pt;
+    color: #A8A8A8;
+}
+
+#waiting-start-box {
+    width: 280px;
+    height: 65px;
+    position: relative;
+    top: 200px;
+    left: 150px;
+    font-family: "나눔고딕";
+    border: none;
+    font-weight: 500;
+    font-size: 28pt;
+    background-color: #F2F2F2;
+    color: #7D7D7D;
+}
+
+#waiting-start-box:hover {
+    background-color: #707070;
+    color: white;
+}
+
+#ranker-number {
+
+}
+
+#ranker-name {
+    
+}

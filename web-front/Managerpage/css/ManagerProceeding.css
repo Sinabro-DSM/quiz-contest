@@ -1,0 +1,113 @@
+.body {
+    margin: 0px;
+    height: 100vh;
+}
+
+#header {
+    height: 75.5px;
+}
+
+#header-basics {
+    width: 100%;
+    height: 100%;
+    border-bottom: solid #A8A8A8 1px;
+}
+
+#header-logo {
+    padding-left: 43.5%; 
+    padding-top: 19px; 
+    display: inline-block;
+    font-family: "나눔고딕";
+    font-size: 25pt;
+    color: #707070;
+}
+
+#header-Manager {
+    padding-left: 3px;
+    font-family: "나눔고딕";
+    font-size: 12pt;
+    color: #707070;
+}
+
+#question-box {
+    float: left;
+    width: 880px;
+    height: 544px;
+    border-right: solid #A8A8A8 1px;
+}
+
+#ranker-box {
+    float: right;
+    width: 449px;
+    height: 544px;
+}
+
+#question-title {
+    position: relative;
+    top: 15px;
+    padding-bottom: 50px;
+    text-align: center;
+    font-family: "나눔고딕";
+    font-size: 18pt;
+    color: #7E7E7E;
+}
+
+#ranker-title {
+    position: relative;
+    top: 15px;
+    padding-bottom: 50px;
+    text-align: center;
+    font-family: "나눔고딕";
+    font-size: 18pt;
+    color: #7E7E7E;
+}
+
+.question-number {
+    padding-top: 25px; 
+    display: inline-block;
+    padding-left: 45px;
+    font-family: "나눔고딕";
+    font-size: 15pt;
+    color: #7E7E7E;
+}
+
+.question-text {    
+    display: inline-block;
+    width: 740px;
+    height: 40px;
+    margin-left: 10px;
+    border-bottom: solid #bbbbbb 1px;
+    font-family: "나눔고딕";
+    font-size: 15pt;
+    color: #7E7E7E;
+}
+
+.ranker-number {
+    display: inline-block;
+    padding-top: 25px;
+    padding-left: 45px;
+    font-family: "나눔고딕";
+    font-size: 15pt;
+    color: #7E7E7E
+}
+
+.ranker-name {
+    display: inline-block;
+    height: 40px;
+    width: 320px;
+    margin-left: 10px;
+    border-bottom: solid #bbbbbb 1px;
+}
+
+.left-button {
+    display: inline-block;
+    margin: 40px 0px 0px 10px;
+    border: none;
+}
+
+.right-button {
+    display: inline-blcok;
+    float: right;
+    margin: 40px 15px 0px 0px;
+    border: none;
+}
