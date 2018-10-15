@@ -51,9 +51,9 @@ waitingIO.on('connection', (waitingSocket) => {
 });
 
 participantIO.on('connection', (participantSocket) => {
-    participantModule.init(participantSocket, participantIO, redisClient);
-    participantSocket.on('correctReply', () => participantModule.correctReply(participantSocket, participantIO, redisClient)); //data: 몇 번 문제인지
-    participantSocket.on('incorrectReply', () => participantModule.incorrectReply(participantSocket, participantIO, redisClient));
+    participantModule.init(participantSocket, gameAdminIO, redisClient);
+    participantSocket.on('correctReply', () => participantModule.correctReply(participantSocket, participantIO, gameAdminIO, redisClient)); //data: 몇 번 문제인지
+    participantSocket.on('incorrectReply', () => participantModule.incorrectReply(participantSocket, participantIO, gameAdminIO, redisClient));
     participantSocket.on('disconnect', () => participantModule.destroy());
 });
 

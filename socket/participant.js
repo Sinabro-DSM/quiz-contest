@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const init = async(participantSocket, participantIO, redisClient) => {
+const init = async(participantSocket, gameAdminIO, redisClient) => {
     console.log(`participant connection`);
 
     const socketIdObj = {
@@ -11,13 +11,13 @@ const init = async(participantSocket, participantIO, redisClient) => {
     try {
         await redisClient.select(0);
         await redisClient.hmset(remoteAddress, socketIdObj);
-        nextQuestion(participantSocket, participantIO, redisClient);
+        nextQuestion(participantSocket, gameAdminIO, redisClient);
     } catch(e) {
         console.error(e);
     }
 };
 
-const correctReply = async(participantSocket, participantIO, redisClient) => {
+const correctReply = async(participantSocket, participantIO, gameAdminIO, redisClient) => {
     try {
         await redisClient.select(1);
         const QNumber = Number(await redisClient.get('QNumber'));
@@ -41,14 +41,14 @@ const correctReply = async(participantSocket, participantIO, redisClient) => {
         participantSocket.emit('plusScore', {plusScore: plusScore});
 
         if(grade+1 == countParticipant(participantIO)) {
-            nextQuestion(participantSocket, redisClient);
+            nextQuestion(participantSocket, gameAdminIO, redisClient);
         }
     } catch(e) {
         console.error(e);
     }
 };
 
-const incorrectReply = async(participantSocket, participantIO, redisClient) => {
+const incorrectReply = async(participantSocket, participantIO, gameAdminIO, redisClient) => {
     try {
         await redisClient.select(1);
         const QNumber = Number(await redisClient.get('QNumber'))
@@ -60,7 +60,7 @@ const incorrectReply = async(participantSocket, participantIO, redisClient) => {
         await redisClient.hmset('answerSeq', obj);
 
         if(grade+1 == countParticipant(participantIO)) {
-            nextQuestion(participantSocket, redisClient);
+            nextQuestion(participantSocket, gameAdminIO, redisClient);
         }
 
     } catch(e) {
@@ -72,7 +72,7 @@ const destroy = () => {
 
 };
 
-const nextQuestion = async(participantSocket, redisClient) => {
+const nextQuestion = async(participantSocket, gameAdminIO, redisClient) => {
     await redisClient.select(1);
     const QNumber = Number(await redisClient.get('QNumber'));
 
@@ -97,6 +97,7 @@ const nextQuestion = async(participantSocket, redisClient) => {
             }
             gradeArr.pop();
             participantSocket.emit('finishGame', {grade: gradeArr, nickname: nicknameArr});
+            gameAdminIO.emit('finishGame', {grade: gradeArr, nickname: nicknameArr});
         } catch(e) {
             console.error(e);
         }
@@ -104,6 +105,7 @@ const nextQuestion = async(participantSocket, redisClient) => {
         const items = await redisClient.lrange('question', QNumber,QNumber);
         const question = await parseQuestion(items);
         participantSocket.emit('QSolution', question);
+        gameAdminIO.emit('QSolution', question);
         await redisClient.set('QNumber', (QNumber+1).toString());
     }
 };
