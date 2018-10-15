@@ -1,11 +1,20 @@
-window.onload = memberCounting;
+//get id value in HTML
+let inputCode = document.getElementById('waiting-code');
+let inputMember = document.getElementById('waiting-number');
 
-function memberCounting() {
-    let Member = 0;
-    document.getElementById('waiting-number').innerHTML = Member.toString() + '명';
-    setTimeout("memberCounting()", 1000);
-};
+//socket.io
+let socket = io();
 
-function nextpage() {
+socket.on('connection', function(socket) {
+    socket.on('sendCode', (code) => {
+        inputCode.value(code);
+    });
+    socket.on('sendMember', (member) => {
+        inputMember.value(member.toString() + '명');
+    });
+});
+
+//nextpage function
+function nextPage() {
     location.href = '';
 };
