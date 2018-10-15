@@ -42,7 +42,7 @@ const init = async (waitingAdminSocket, waitingIO, redisClient) => {
 const destroy = () => {};
 
 const gameStart = (waitingIO)=>{
-    waitingIO.emit('Start');
+    waitingIO.emit('start');
 };
 
 const shuffle = (num) => {
