@@ -3,7 +3,7 @@ let finalRankerElement = document.createElement('li');
 let finalRankerListElement = document.getElementById('final-ranker-list');
 
 //socket.io
-let socket = io();
+let socket = io(/waitingAdmin/gameAdmin);
 
 socket.on('connection', function(socket) {
     socket.on('sendMember', (member) => {

@@ -3,7 +3,7 @@ let inputCode = document.getElementById('waiting-code');
 let inputMember = document.getElementById('waiting-number');
 
 //socket.io
-let socket = io();
+let socket = io(/waitingAdmin/gameAdmin);
 
 socket.on('connection', function(socket) {
     socket.on('sendCode', (code) => {

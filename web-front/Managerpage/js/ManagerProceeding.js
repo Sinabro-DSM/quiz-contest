@@ -5,11 +5,14 @@ let questionElement = document.createElement('li');
 let questionListElement = document.getElementById('question-list');
 
 //socket.io
-let socket = io();
+let socket = io(/waitingAdmin/gameAdmin);
 
 socket.on('connection', function(socket) {
-    socket.on('questionConnection', (question) => {
-        let questionData = ["dasdasdas", "sdhjahjfydyjahs", "djsauifhdsiufhuihfdad", "hdssudyhdsuadssad", "dasdhuasdsda"];
+    socket.on('QSolution', (question) => {
+        let questionData = {
+            "question":"",
+            "answer":""
+        };
         questionData.filter(function(curval) {
             let element = document.createElement('li');
             element.innerHTML = `<span class="question-text">${curval}</span>`;
@@ -17,8 +20,11 @@ socket.on('connection', function(socket) {
             questionListElement.appendChild(element);
         });
     });
-    socket.on('rankerConnection', (ranker) => {
-        let rankersData = ["hrll", "abcd", "qwer", "eee", "ldsa"];
+    socket.on('finishGame', (ranker) => {
+        let rankersData = {
+            "grade":"",
+            "nickname":""
+        };
         rankersData.filter(function(curVal) {
             let element = document.createElement('li');
             element.innerHTML = `<span class="ranker-name">${curVal}</span>`;
