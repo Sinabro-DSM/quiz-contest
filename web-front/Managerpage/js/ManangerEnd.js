@@ -1,6 +1,8 @@
+//get id value in HTML
 let finalRankerElement = document.createElement('li');
 let finalRankerListElement = document.getElementById('final-ranker-list');
 
+//socket.io
 let socket = io();
 
 socket.on('connection', function(socket) {

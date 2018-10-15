@@ -1,8 +1,10 @@
+//get id value in HTML
 let rankerElement = document.createElement('li');
 let rankerListElement = document.getElementById('ranker-list');
 let questionElement = document.createElement('li');
 let questionListElement = document.getElementById('question-list');
 
+//socket.io
 let socket = io();
 
 socket.on('connection', function(socket) {
