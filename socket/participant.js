@@ -61,13 +61,40 @@ const destroy = () => {
 const nextQuestion = async(participantSocket, redisClient) => {
     await redisClient.select(1);
     const QNumber = Number(await redisClient.get('QNumber'));
-    const items = await redisClient.lrange('question', QNumber,QNumber);
-    const question = await parseQuestion(items, fs);
-    participantSocket.emit('QSolution', question);
-    await redisClient.set('QNumber', (QNumber+1).toString());
+
+    if(QNumber == 10) {
+        try {
+            await redisClient.select(0);
+            const keys = await redisClient.keys('*');
+            const gradeArr = [0];
+            const nicknameArr = [];
+
+            for(let v of keys) {
+                const score = Number(await redisClient.hmget(v, 'score'));
+                const nickname = (await redisClient.hmget(v, 'nickname')).toString();
+
+                for(let i in gradeArr) {
+                    if(score >= gradeArr[i] || i == gradeArr.length-1) {
+                        gradeArr.unshift(score);
+                        nicknameArr.unshift(nickname);
+                        break;
+                    }
+                }
+            }
+            gradeArr.pop();
+            participantSocket.emit('finishGame', {grade: gradeArr, nickname: nicknameArr});
+        } catch(e) {
+            console.error(e);
+        }
+    } else {
+        const items = await redisClient.lrange('question', QNumber,QNumber);
+        const question = await parseQuestion(items);
+        participantSocket.emit('QSolution', question);
+        await redisClient.set('QNumber', (QNumber+1).toString());
+    }
 };
 
-const parseQuestion = (items, fs) => {
+const parseQuestion = (items) => {
     return new Promise((resolve) => {
         const question = fs.readFileSync('./question/'+items+'.json');
         resolve(JSON.parse(question));

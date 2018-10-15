@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const init = async (waitingAdminSocket, waitingIO, redisClient) => {
     try {
         await redisClient.flushall();
@@ -20,7 +22,8 @@ const init = async (waitingAdminSocket, waitingIO, redisClient) => {
     }
 
     try {
-        const arr = shuffle(10);
+        const num = process.env.QUESTION_NUM
+        const arr = shuffle(num);
         await redisClient.select(1);
         arr.forEach(i => redisClient.rpush('question', i.toString()));
     } catch(e) {
