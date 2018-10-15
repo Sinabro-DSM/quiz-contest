@@ -1,10 +1,15 @@
 const init = async (redisClient)=>{
     const QNumber =0;
-    await redisClient.select(1);
-    await redisClient.set('QNumber',QNumber);
+
+    try {
+        await redisClient.select(1);
+        await redisClient.set('QNumber',QNumber);
+    } catch(e) {
+        console.error(e);
+    }
 };
 
-const questionChange = async (gameAdminSocket,gameAdminIO,redisClient,fs)=>{
+const questionChange = async (gameAdminSocket, redisClient, fs)=>{
     try{
         await redisClient.select(1);
         const QNumber = Number(await redisClient.get('QNumber'));

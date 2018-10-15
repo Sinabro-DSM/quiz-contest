@@ -1,17 +1,30 @@
 const fs = require('fs');
 
-const init = (participantSocket, redisClient) => {
+const init = async(participantSocket, participantIO, redisClient) => {
     console.log(`participant connection`);
-    nextQuestion(participantSocket, redisClient);
+
+    const socketIdObj = {
+        socketId: participantSocket.id.split('#')[1]
+    };
+    const {remoteAddress} = participantSocket.request.connection;
+
+    try {
+        await redisClient.select(0);
+        await redisClient.hmset(remoteAddress, socketIdObj);
+        nextQuestion(participantSocket, participantIO, redisClient);
+    } catch(e) {
+        console.error(e);
+    }
 };
 
-const correctReply = async(data, participantSocket, participantIO, redisClient) => {
+const correctReply = async(participantSocket, participantIO, redisClient) => {
     try {
         await redisClient.select(1);
-        const grade = Number(await redisClient.hmget('answerSeq', data.num));
+        const QNumber = Number(await redisClient.get('QNumber'));
+        const grade = Number(await redisClient.hmget('answerSeq', QNumber+1));
 
         const obj = {};
-        obj[data.num] = grade+1;
+        obj[QNumber] = grade+1;
 
         await redisClient.hmset('answerSeq', obj);
 
@@ -35,13 +48,14 @@ const correctReply = async(data, participantSocket, participantIO, redisClient) 
     }
 };
 
-const incorrectReply = async(data, participantSocket, participantIO, redisClient) => {
+const incorrectReply = async(participantSocket, participantIO, redisClient) => {
     try {
         await redisClient.select(1);
-        const grade = Number(await redisClient.hmget('answerSeq', data.num));
+        const QNumber = Number(await redisClient.get('QNumber'))
+        const grade = Number(await redisClient.hmget('answerSeq', QNumber+1));
 
         const obj = {};
-        obj[data.num] = grade+1;
+        obj[QNumber] = grade+1;
 
         await redisClient.hmset('answerSeq', obj);
 
