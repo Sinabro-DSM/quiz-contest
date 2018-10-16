@@ -1,3 +1,9 @@
+let check = {
+    cord: true,
+    nickname: true,
+    phonenumber: true
+};
+
 function answerCheck(answer) {
     var wrong = document.querySelector('#wrongAnswer').style;
     var right = document.querySelector('#rightAnswer').style;  
@@ -7,4 +13,11 @@ function answerCheck(answer) {
     target.backgroundColor = '#FF000050';
     wrong.display = 'block';
     explanation.display = 'block';
+}
+
+function clearMessage(clearChk, frm) {
+    if (clearChk) {
+        frm.value="";
+        clearChk = false;
+    }
 }

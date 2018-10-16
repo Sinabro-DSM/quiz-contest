@@ -17,6 +17,12 @@ body {
     color: #707070;
 }
 
+#form-for-enter {
+    display: absolute;
+    text-align: center;
+    transform: translate(0, 40%);
+}
+
 #waiting-content {
     display: flex;
 }
@@ -110,6 +116,54 @@ body {
     display: none;
 }
 
+#first-link {
+    border: none;
+    background-color: #70707050;
+    padding: 20px 20px;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: #707070;
+    margin: 30px auto;
+    display: block;
+}
+
+#winner-notice {
+    margin: 40px auto;
+    text-align: center;
+    width: 50%;
+}
+
+#get-phonenumber-form {
+    margin: 0 auto;
+    text-align: center;
+    width: 50%;
+}
+
+#input-phonenumber {
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 18px;
+    padding: 10px;
+    width: 40%;
+}
+
+.submitButton {
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 18px;
+    padding: 10px;
+    background-color: #70707050;
+    color: #707070;
+    border: none;
+}
+
+.textbox-for-enter {
+    font-family: 'Nanum Gothic', sans-serif;
+    color: #707070;
+    font-size: 20px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
 .user-nickname {
     padding: 20px 40px;
     border-bottom: 1px solid #70707050;
@@ -125,4 +179,33 @@ body {
     margin: 0 5px;
     font-family: 'Nanum Gothic', sans-serif;
     font-weight: 400;
+}
+
+.ranking-firstprize {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ranking {
+    flex: 1;
+    text-align: center;
+}
+
+.prize {
+    margin: 80px 0px;
+}
+
+.user-name {
+    margin-left: 50px;
+}
+
+.final-score {
+    margin-left: 50px;
+}
+
+.first-prize-link {
+    display: absolute;
+    flex: 1;
+    text-align: center;
 }

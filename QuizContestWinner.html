@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>퀴즈 대회 - 1위</title>
+    <link rel="stylesheet" text="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
+    <script src="QuizContest.js"></script>
+</head>
+<body>
+    <div id="header">
+        1위 축하합니다!
+    </div>
+    <div  id="winner-notice">
+        오늘 행사에 참여하신 분들 중 1위분들은 추첨을 통해 소정의 상품을 드릴 예정이오니 아래 입력란에 전화번호를 입력해 주세요. 원치 않으시면 입력하지 않으셔도 됩니다!
+    </div>
+    <div id="get-phonenumber-form">
+        <form action="" method="post" id="get-phonenumber">
+            <input type="text" value="전화번호를 입력해 주세요" name="input-phonenumber" id="input-phonenumber" onFocus="clearMessage(this.form)">
+            <input type="button" value="완료" id="send-phonenumber">
+        </form>
+    </div>
+</body>
+<script>
+    function clearMessage(form);
+</script>
+</html>
