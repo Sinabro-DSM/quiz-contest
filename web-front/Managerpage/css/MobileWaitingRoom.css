@@ -1,0 +1,35 @@
+.html { 
+    -webkit-text-size-adjust: none; 
+}
+
+.body {
+    margin: 0%;
+    height: 100vh;
+}
+
+#waiting-room-header {
+    height: 60px;
+    width: 100%;
+    border-bottom: solid #C9C9C9 2px;
+}
+
+#waiting-text {
+    display: inline-block;
+    width: 85%;
+    height: 30px;
+    border: solid #707070 1px;
+}
+
+#waiting-submit {
+    margin-top: 30px;
+    width: 11%;
+}
+
+#waiting-room-title {
+    padding-top: 10px;
+    text-align: center;
+    font-family: NanumSquareRound;
+    font-weight: 500;
+    color: #707070;
+    font-size: 25pt;
+}

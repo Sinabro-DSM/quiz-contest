@@ -3,14 +3,14 @@ let inputCode = document.getElementById('waiting-code');
 let inputMember = document.getElementById('waiting-number');
 
 //socket.io
-let socket = io(/waitingAdmin/gameAdmin);
+let socket = io('/waitingAdmin');
 
 socket.on('connection', function(socket) {
-    socket.on('sendCode', (code) => {
-        inputCode.value(code);
+    socket.on('code', (auth) => {
+        inputCode.value(auth.code);
     });
-    socket.on('sendMember', (member) => {
-        inputMember.value(member.toString() + '명');
+    socket.on('waitingCount', (member) => {
+        inputMember.value(member.count);
     });
 });
 
