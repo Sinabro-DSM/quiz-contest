@@ -16,5 +16,10 @@ socket.on('connection', function(socket) {
 
 //nextpage function
 function nextPage() {
-    location.href = '';
+    socket.on('connection', function(socket) {
+        socket.on('start', (startContest) => {
+            if (startContest == 1) 
+                location.href="#";
+        });
+    });
 };
