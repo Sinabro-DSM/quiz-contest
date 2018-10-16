@@ -8,28 +8,43 @@
 }
 
 #waiting-room-header {
-    height: 60px;
+    height: 66px;
     width: 100%;
     border-bottom: solid #C9C9C9 2px;
 }
 
+#waiting-room-title {
+    padding-top: 15px;
+    text-align: center;
+    font-family: NanumSquareRound;
+    font-weight: 700;
+    color: #707070;
+    font-size: 25pt;
+}
+
+#waiting-member {
+    height: 150px;
+    width: 100%;
+}
+
 #waiting-text {
-    display: inline-block;
-    width: 85%;
+    position: relative;
+    top: 24px;
+    left: 21px;
+    margin: 0%;
+    width: 70%;
     height: 30px;
     border: solid #707070 1px;
 }
 
 #waiting-submit {
-    margin-top: 30px;
-    width: 11%;
+    position: relative;
+    top: 26px;
+    left: 30px;
+    width: 13%;
+    height: 34px;
+    background-color: #BFD9FF;
+    border: solid #6EA9FF 1px;
+    color: rgba(0, 0, 0, 0.5);
 }
 
-#waiting-room-title {
-    padding-top: 10px;
-    text-align: center;
-    font-family: NanumSquareRound;
-    font-weight: 500;
-    color: #707070;
-    font-size: 25pt;
-}
