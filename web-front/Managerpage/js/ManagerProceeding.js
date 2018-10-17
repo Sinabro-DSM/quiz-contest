@@ -5,7 +5,7 @@ let questionElement = document.createElement('li');
 let questionListElement = document.getElementById('question-list');
 
 //socket.io
-let socket = io('/gameAdmin');
+let socket = io('http://52.79.121.254:3000/gameAdmin');
 
 socket.on('connection', function(socket) {
     socket.on('QSolution', (question) => {

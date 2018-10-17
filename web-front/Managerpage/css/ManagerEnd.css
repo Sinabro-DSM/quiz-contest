@@ -63,19 +63,6 @@
     color: #7E7E7E;
 }
 
-#ranker-left-button {
-    margin: 40px 0px 0px 100px;
-    width: 40px;
-    height: 40px;
-}
-
-#ranker-right-button {
-    float: right;
-    margin: 40px 110px 0px 0px;
-    width: 40px;
-    height: 40px;
-}
-
 #waiting-title {
     text-align: center;
     color: #7E7E7E;

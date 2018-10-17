@@ -98,16 +98,3 @@
     margin-left: 10px;
     border-bottom: solid #bbbbbb 1px;
 }
-
-.left-button {
-    display: inline-block;
-    margin: 40px 0px 0px 10px;
-    border: none;
-}
-
-.right-button {
-    display: inline-blcok;
-    float: right;
-    margin: 40px 15px 0px 0px;
-    border: none;
-}
