@@ -3,7 +3,7 @@ let inputCode = document.getElementById('waiting-code');
 let inputMember = document.getElementById('waiting-number');
 
 //socket.io
-let socket = io('/waitingAdmin');
+let socket = io('http://52.79.121.254:3000/waitingAdmin');
 
 socket.on('connection', function(socket) {
     socket.on('code', (auth) => {
