@@ -1,9 +1,9 @@
 {
-    "question": "",
-    "1": "",
-    "2": "",
-    "3": "",
-    "4": "",
-    "answer": "",
-    "solution": ""
+    "question": "가장 많은 점유율을 차지하는 모바일 OS로 알맞은 것을 고르시오.",
+    "1": "Android OS",
+    "2": "iOS",
+    "3": "Windows 10 Mobile",
+    "4": "blackberry",
+    "answer": "1",
+    "solution": "2018년 기준 모바일 OS는 구글이 제작한 Android OS가 점유율 80%로 가장 높은 비율을 차지하고 있다."
 }

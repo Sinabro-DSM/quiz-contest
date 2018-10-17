@@ -3,6 +3,6 @@ const router = express.Router();
 
 router.use('/client', require('./client'))
     .use('/admin', require('./admin'))
-    .use('/dosc', require('./dosc'));
+    .use('/docs', require('./docs'));
 
 module.exports = router;
