@@ -1,0 +1,14 @@
+body {
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 10pt;
+    margin: 0;
+}
+
+#header {
+    text-align: center;
+    padding: 10px;
+    font-size: 20pt;
+    color: #707070; 
+    font-weight: 700;
+    box-shadow: 0 3px 3px #70707050;
+}
