@@ -4,31 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>퀴즈 대회</title>
-    <link rel="stylesheet" text="text/css" href="../css/MobileStyle.css">
-    <script src="../js/QuizContest.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+    <title>퀴즈 대회: 대회 진행중</title>
+    <link rel="stylesheet" text="text/css" href="../css/MobileClientQuiz.css" />
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
 </head>
 <body>
     <div id="header">
         Quiz
     </div>
     <span id="score">
-        ★SCORE 0000
+            ★SCORE : 516
     </span>
+    <span id="timer">10초</span>
     <div id="QuestionNumber">
-        Q1
+        q1
     </div>
     <div id="Question">
-        문제내용임문제내용임문제내용임문제내용
+        sadsad
     </div>
     <div id="multipleAnswers">
-        <input type="button" value="① 어쩌고" class="multipleAnswer" id="answer1" onclick="answerCheck('#answer1')">
-        <input type="button" value="② 어쩌고" class="multipleAnswer" id="answer2" onclick="answerCheck('#answer2')">
-        <input type="button" value="③ 어쩌고" class="multipleAnswer" id="answer3" onclick="answerCheck('#answer3')">
-        <input type="button" value="④ 어쩌고" class="multipleAnswer" id="answer4" onclick="answerCheck('#answer4')">
+        <input type="button" value="" class="multipleAnswer" id="answer1" onclick="answerCheck('#answer1')">
+        <input type="button" value="" class="multipleAnswer" id="answer2" onclick="answerCheck('#answer2')">
+        <input type="button" value="" class="multipleAnswer" id="answer3" onclick="answerCheck('#answer3')">
+        <input type="button" value="" class="multipleAnswer" id="answer4" onclick="answerCheck('#answer4')">
     </div>
     <div id="wrongAnswer">
         X
@@ -37,10 +38,8 @@
         O
     </div>
     <div id="explanation">
-        해설임해설임해설임해설임해설임
     </div>
+    <input type="button" vlaue="" id="defult-button" />
+    <script src="../js/MobileClientQuiz.js"></script>
 </body>
-<script>
-    function answerCheck(answer);
-</script>
 </html>

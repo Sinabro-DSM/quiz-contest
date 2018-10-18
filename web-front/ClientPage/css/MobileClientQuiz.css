@@ -1,0 +1,118 @@
+html, body {
+    margin: 0%;
+    height: 100%;
+}
+
+#header {
+    margin-bottom: 3%;
+    text-align: center;
+    padding: 10px;
+    font-size: 20pt;
+    color: #707070;
+    font-weight: 700;
+    box-shadow: 0 3px 3px #70707050;
+}
+
+#score {
+    margin: 4%;
+    padding-top: 5%;
+    font-family: NanumSquare;
+    color: #70707050;
+}
+
+#QuestionNumber {
+    margin-top: -2%;
+    text-align: center;
+    font-family: Pacifico, cursive;
+    font-size: 20pt;
+    color: #979797;
+    text-shadow: -1px 0 #707070, 0 1px #707070,
+    1px 0 #707070, 0 -1px #707070;
+}
+
+#Question {
+    position: relative;
+    left: 5%;
+    margin-top: -6%;
+    padding: 20px 0px 20px 5px;
+    width: 88%; 
+    background-color: #70707050;
+    border-top: solid #70707080 1px;
+    font-family: NanumSquare;
+    color: #70707074;
+    font-size: 12pt;
+    text-align: left;
+}
+
+#multipleAnswers {
+    width: 80%;
+    height: 100px;
+}
+
+.multipleAnswer {
+    position: relative;
+    top: 15%;
+    left: 7%;
+    margin-bottom: 8%;
+    width: 145px;
+    height: 40%;
+    background-color: #70707050;
+    border: none;
+}
+
+#answer2 {
+    position: relative;
+    left: 19%;
+}
+
+#answer4 {
+    position: relative;
+    left: 19%;
+}
+
+#wrongAnswer {
+    position: absolute;
+    top: 34.5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: Righteous, cursive;
+    font-size: 200px;
+    color: #FF000050;
+    display: none;
+}
+
+#rightAnswer {
+    position: absolute;
+    top: 34.5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: Righteous, cursive;
+    font-size: 200px;
+    color: #00740050;
+    display: none;
+}
+
+#explanation {
+    padding: 30px 20px;
+    background-color: #70707050;
+    border-top: 2px solid #979797;
+    margin: 40px 30px;
+    display: none;
+    font-size: 11pt;
+    color: #707070;
+    font-family: NanumSquare;
+}
+
+#timer {
+    margin-left: 9%;
+    color: #707070;
+    font-family: NanumSquare;
+}
+
+#defult-button {
+    display: none;
+    width: 0px;
+    height: 0px;
+    background-color: #707070;
+    border: none;
+}
