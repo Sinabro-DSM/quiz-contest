@@ -5,23 +5,21 @@ let questionElement = document.createElement('li');
 let questionListElement = document.getElementById('question-list');
 
 //socket.io
-let socket = io('http://52.79.121.254:3000/gameAdmin');
+let socket = io('http://52.79.121.254/gameAdmin');
 
-socket.on('connection', function(socket) {
-    socket.on('QSolution', (question) => {
+socket.on('QSolution', (question) => {
+    let element = document.createElement('li');
+    element.innerHTML = `<span class="question-text">${question.question} 정답: ${question.answer}</span>`;
+    questionElement.appendChild(element);
+    questionListElement.appendChild(element);
+});
+socket.on('score', (ranker) => {
+    rankerListElement.innerHTML = "";
+    ranker.nickname.filter(function(curVal) {
         let element = document.createElement('li');
-        element.innerHTML = `<span class="question-text">${question.question} 정답: ${question.answer}</span>`;
-        questionElement.appendChild(element);
-        questionListElement.appendChild(element);
-    });
-    socket.on('', (ranker) => {
-        innerHTML="";
-        ranker.nickname.filter(function(curVal) {
-            let element = document.createElement('li');
-            element.innerHTML = `<span class="ranker-name">${curVal}</span>`;
-            rankerElement.appendChild(element);
-            rankerListElement.appendChild(element);
-        });
+        element.innerHTML = `<span class="ranker-name">${curVal}</span>`;
+        rankerElement.appendChild(element);
+        rankerListElement.appendChild(element);
     });
 });
 

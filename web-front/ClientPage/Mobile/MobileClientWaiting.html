@@ -4,16 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>퀴즈 대회 - 대기실</title>
-    <link rel="stylesheet" text="text/css" href="../css/MobileStyle.css">
-    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    <script src="../js/QuizContest.js"></script>
+    <title>퀴즈 대회: 대기실</title>
+    <link rel="stylesheet" text="text/css" href="../css/MobileClientWaiting.css" />
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
 </head>
 <body>
     <div id="header">
         대기실
     </div>
+    <div id="waiting">
+            <div id="waiting-list">
+                <div class="user-nickname">
+                    user1 닉네임
+                </div>
+                </div>
+            </div>
+        </div>
     <div id="waiting-content">
         <div id="warning">
             <div id="warning-header">
@@ -22,25 +30,12 @@
                 <i class="fas fa-exclamation-triangle" id="warning-icon"></i>
             </div>
             <div id="warning-content">
-                경고함~아무튼경고함경고했다경고함경고함경고함야경고했다나는경고했다고경고했다경고했다꼭지켜라경고했다이눔자식들앙경고했어경고했다경고했으니까말쫌듣자경고했다~경고함~아무튼경고함경고했다경고함경고함경고함야경고했다나는경고했다고경고했다경고했다꼭지켜라경고했다이눔자식들앙경고했어경고했다경고했으니까말쫌듣자경고했다~경고함~아무튼경고함경고했다경고함경고함경고함야경고했다나는경고했다고경고했다경고했다꼭지켜라경고했다이눔자식들앙경고했어경고했다경고했으니까말쫌듣자경고했다~
+                1. 문제풀이 제한 시간은 10초 입니다. <br>
+                2. 정답을 맞춘 분이 여러명이어도 점수는 제출 순으로 높게 배정됩니다. <br>
+                3. 퀴즈 대회가 끝나고, 모든 참여자의 전체 랭킹을 따진 후 상위 몇 분에게 소정의 상품을 지급할 예정입니다.
             </div>
         </div>
-        <div id="waiting">
-            <div id="waiting-list">
-                <div class="user-nickname">
-                    user1 닉네임
-                </div>
-                <div class="user-nickname">
-                    user2 닉네임
-                </div>
-                <div class="user-nickname">
-                    user3 닉네임
-                </div>
-                <div class="user-nickname">
-                    user4 닉네임
-                </div>
-            </div>
-        </div>
-    </div>        
+    </div>     
+    <script src="../js/MobileClientWaiting.js"></script>   
 </body>
 </html>

@@ -1,0 +1,70 @@
+html, body {
+    margin: 0%;
+    height: 100%;
+}
+
+#header {
+    margin-bottom: 3%;
+    text-align: center;
+    padding: 10px;
+    font-size: 20pt;
+    color: #707070;
+    font-weight: 700;
+    box-shadow: 0 3px 3px #70707050;
+}
+
+#waiting-content {
+    width: 100%;
+    height: 100%;
+}
+
+#waiting {
+    width: 100%;
+}
+
+#waiting-list {
+    margin: 10% 0% 0% 10%;
+    width: 100%;
+}
+
+.user-nickname {
+    padding-top: 30px; 
+    width: 80%;
+    height: 25px;
+    border-bottom: solid #707070 1px;
+    font-family: NanumSquare;
+    font-size: 15pt;
+    color: #707070
+}
+
+#waiting-content {
+    width: 100%;
+    height: 100%;
+}
+
+#warning {
+    width: 85%;
+    padding: 20px;
+}
+
+#warning-header {
+    padding-top: 10%;
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    color: #707070;
+    font-family: NanumSquare;
+    font-size: 14pt;
+}
+
+#warning-icon {
+    color: rgb(255, 217, 0);
+}
+
+#warning-content {
+    color: #707070;
+    font-family: NanumSquare;
+    font-size: 12pt;
+    padding: 20px;
+    text-align: center;
+}
