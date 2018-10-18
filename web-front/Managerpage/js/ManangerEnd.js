@@ -6,6 +6,8 @@ let inputMember = document.getElementById('watitng-box-members');
 //socket.io
 let socket = io('http://52.79.121.254/gameAdmin');
 
+
+socket.emit('connection', 1);
 socket.on('waitingCount', (member) => {
     inputMember.value(member.code.toString() + '명');
 });

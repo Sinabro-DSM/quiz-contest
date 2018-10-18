@@ -7,6 +7,7 @@ let questionListElement = document.getElementById('question-list');
 //socket.io
 let socket = io('http://52.79.121.254/gameAdmin');
 
+socket.emit('connection', 1);
 socket.on('QSolution', (question) => {
     let element = document.createElement('li');
     element.innerHTML = `<span class="question-text">${question.question} 정답: ${question.answer}</span>`;

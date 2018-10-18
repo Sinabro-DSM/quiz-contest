@@ -6,6 +6,7 @@ let inputMember = document.getElementById('waiting-number');
 let socket = io('http://52.79.121.254/waitingAdmin');
 
 
+socket.emit('connection', 1);
 socket.on('code', (auth) => {
     inputCode.value(auth.code);
 });
@@ -15,5 +16,5 @@ socket.on('waitingCount', (member) => {
 
 //nextpage function
 function nextPage() {
-    socket.emit('start', (startContest));
+    socket.emit('start', 1);
 };

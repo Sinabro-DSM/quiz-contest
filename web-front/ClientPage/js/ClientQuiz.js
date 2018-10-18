@@ -12,10 +12,11 @@ let wrong = document.querySelector('#wrongAnswer').style;
 let right = document.querySelector('#rightAnswer').style;  
 let explanation = document.querySelector('#explanation').style;
 let defaultButton = document.getElementById('defult-button');
+let peopleAnswer = document.getElementById('defult-button');
 
 //Declare Variables
 let target;
-let peopleAnswer = document.getElementById('defult-button');
+let quizNumber = 1;
 let setTime = 9;
 let score = 0; 
 let quizAnswer;
@@ -29,7 +30,6 @@ let check = {
 let socket = io('http://52.79.121.254/waitingAdmin');
 
 socket.emit('connectio', 1);
-let quizNumber = 1;
 socket.on('QSolution', (quiz) => {
     quizNumberElement.value("");
     quizNumberElement.value('Q' + quizNumber.toString());
