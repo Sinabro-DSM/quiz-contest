@@ -189,11 +189,11 @@ body {
 
 .ranking {
     flex: 1;
-    text-align: center;
 }
 
 .prize {
-    margin: 80px 0px;
+    display: absolute;
+    transform: translate(50%, 50%);
 }
 
 .user-name {
@@ -205,6 +205,7 @@ body {
 }
 
 .first-prize-link {
+    transform: translate(0, 50%);
     display: absolute;
     flex: 1;
     text-align: center;

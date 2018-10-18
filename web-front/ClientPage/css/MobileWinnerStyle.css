@@ -1,0 +1,37 @@
+body {
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 12pt;
+    margin: 0;
+}
+
+#header {
+    text-align: center;
+    padding: 10px;
+    font-size: 20pt;
+    color: #707070; 
+    font-weight: 700;
+    box-shadow: 0 3px 3px #70707050;
+}
+
+#winner-notice {
+    width: 70%;
+    margin: 20px auto;
+    text-align: center;
+}
+
+#get-phonenumber {
+    text-align: center;
+}
+
+#input-phonenumber {
+    padding: 3px;
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+#send-phonenumber {
+    border: none;
+    background-color: #70707050;
+    color: #707070;
+    font-family: 'Nanum Gothic', sans-serif;
+    padding: 6px;
+}
