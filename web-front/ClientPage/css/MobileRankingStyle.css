@@ -1,7 +1,19 @@
 body {
     font-family: 'Nanum Gothic', sans-serif;
-    font-size: 10pt;
+    font-size: 12pt;
     margin: 0;
+}
+
+ol {
+    display: table;
+    margin: 20px auto;
+    font-size: 13pt;
+    font-weight: 600;
+    color: #707070;
+}
+
+.first-prize-link {
+    text-align: center;
 }
 
 #header {
@@ -11,4 +23,12 @@ body {
     color: #707070; 
     font-weight: 700;
     box-shadow: 0 3px 3px #70707050;
+}
+
+#first-prize-link {
+    margin: 10px;
+    border: none;
+    background-color: #70707050;
+    color: #707070;
+    padding: 10px;
 }
