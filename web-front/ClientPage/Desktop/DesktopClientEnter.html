@@ -8,16 +8,20 @@
     <link rel="stylesheet" text="text/css" href="../css/DesktopStyle.css">
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+    <script src="../js/SendEnterCode.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="../js/ClientEnter.js"></script>
 </head>
 <body>
     <div id="header">
         참가 신청
     </div>
-    <form action="" method="post" id="form-for-enter">
-        <input type="text" placeholder="인증 코드 입력" size="15" name="cord" class="textbox-for-enter"><br>
-        <input type="text" placeholder="닉네임 입력" size="15" name="nickname" class="textbox-for-enter"><br>
-        <button type="submit" class="submitButton">완료</button>
-    </form>
-    <script src="../js/ClientEnter.js"></script>
+    
+    <div>
+        <input id="login-code" type="text" placeholder="인증 코드 입력" size="15" name="cord" class="textbox-for-enter"><br>
+        <input id="login-nickname" type="text" placeholder="닉네임 입력" size="15" name="nickname" class="textbox-for-enter"><br>
+        <button class="submitButton" id="submitEnterCode" onclick="loginClick()">완료</button>  
+    </div>
+      
 </body>
 </html>
