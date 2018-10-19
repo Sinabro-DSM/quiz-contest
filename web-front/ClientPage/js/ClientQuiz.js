@@ -27,7 +27,7 @@ let check = {
 };
 
 //socket io code
-let socket = io('http://52.79.121.254/gameAdmin');
+let socket = io('http://52.79.121.254/participant');
 
 socket.emit('connection', 1);
 socket.on('QSolution', (quiz) => {

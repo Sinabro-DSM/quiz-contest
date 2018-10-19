@@ -28,6 +28,7 @@ socket.on('minusWaiting', (minus) => {
 });
 
 //nextpage function
-function nextPage() {
+function nextpage() {
     socket.emit('start', 1);
+    location.href = "./ManagerProceeding.html";
 };

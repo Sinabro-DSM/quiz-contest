@@ -65,6 +65,7 @@ body {
 }
 
 #QuestionNumber {
+    
     margin-top: -40px;
     text-align: center;
     font-family: 'Pacifico', cursive;
@@ -226,4 +227,13 @@ body {
     height: 0px;
     background-color: #707070;
     border: none;
+}
+
+#timer {
+    position: relative;
+    left: 49%;
+    color: #707070; 
+    font-family: NanumSquare;
+    margin-bottom: 4%;
+    margin-top: 2%;
 }

@@ -19,3 +19,7 @@ socket.on('finishGame', (ranker) => {
         finalRankerListElement.appendChild(element);
     });
 });
+
+function backpage() {
+    location.href = "./ManagerWaiting.html";
+};
