@@ -12,9 +12,9 @@ socket.on('code', (auth) => {
     inputCode.innerText = "code : " + auth.code;
 });
 socket.on('waitingList', (member) => {
-    waitingMember += 1;
     console.log("count: ", waitingMember);
     inputMember.innerText = waitingMember + "명";
+    waitingMember += 1;
 });
 socket.on('plusWaiting', (plus) => {
     waitingMember += 1;
