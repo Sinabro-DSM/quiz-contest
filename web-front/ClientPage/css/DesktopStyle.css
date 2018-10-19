@@ -218,7 +218,6 @@ body {
     transform: translate(0, 10%);
     flex: 1;
     text-align: center;
-<<<<<<< HEAD
 }
 
 #defult-button {
@@ -227,6 +226,4 @@ body {
     height: 0px;
     background-color: #707070;
     border: none;
-=======
->>>>>>> e8bfa412228d56b5f14c21c81202c4e3c65194b7
 }
