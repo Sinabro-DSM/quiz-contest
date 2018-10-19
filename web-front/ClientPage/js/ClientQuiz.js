@@ -27,24 +27,24 @@ let check = {
 };
 
 //socket io code
-let socket = io('http://52.79.121.254/waitingAdmin');
+let socket = io('http://52.79.121.254/gameAdmin');
 
-socket.emit('connectio', 1);
+socket.emit('connection', 1);
 socket.on('QSolution', (quiz) => {
-    quizNumberElement.value("");
-    quizNumberElement.value('Q' + quizNumber.toString());
-    quizBoxElement.value(quiz.question);
-    answer1.value(quiz[1]);
-    answer2.value(quiz[2]);
-    answer3.value(quiz[3]);
-    answer4.value(quiz[4]);
-    explanationElement.value(quiz.solution);
+    quizNumberElement.innerText = "";
+    quizNumberElement.innerText = 'Q' + quizNumber;
+    quizBoxElement.innerText = quiz.question;
+    answer1.innerText = quiz[1];
+    answer2.innerText = quiz[2];
+    answer3.innerText = quiz[3];
+    answer4.innerText = quiz[4];
+    explanationElement.innerText = quiz.solution;
     quizAnswer = quiz.answer; 
     quizNumber += 1;
 });
 socket.on('plusScore', (getScore) => {
     score += getScore.plusScore;
-    socreElement.value('★SCORE : ' + score.toString());
+    socreElement.innerText = '★SCORE : ' + score;
 });
 
 

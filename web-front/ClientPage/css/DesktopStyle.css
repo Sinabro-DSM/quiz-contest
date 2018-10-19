@@ -140,6 +140,15 @@ body {
     width: 50%;
 }
 
+#send-phonenumber {
+    border: none;
+    background-color: #70707050;
+    color: #707070;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 20px;
+    padding: 10px;
+}
+
 #input-phonenumber {
     font-family: 'Nanum Gothic', sans-serif;
     font-size: 18px;
@@ -192,8 +201,9 @@ body {
 }
 
 .prize {
-    display: absolute;
-    transform: translate(50%, 50%);
+    display: table;
+    margin: 50px auto;
+    font-size: 30px;
 }
 
 .user-name {
@@ -205,10 +215,10 @@ body {
 }
 
 .first-prize-link {
-    transform: translate(0, 50%);
-    display: absolute;
+    transform: translate(0, 10%);
     flex: 1;
     text-align: center;
+<<<<<<< HEAD
 }
 
 #defult-button {
@@ -217,4 +227,6 @@ body {
     height: 0px;
     background-color: #707070;
     border: none;
+=======
+>>>>>>> e8bfa412228d56b5f14c21c81202c4e3c65194b7
 }

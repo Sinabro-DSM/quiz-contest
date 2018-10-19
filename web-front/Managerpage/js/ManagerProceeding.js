@@ -3,6 +3,7 @@ let rankerElement = document.createElement('li');
 let rankerListElement = document.getElementById('ranker-list');
 let questionElement = document.createElement('li');
 let questionListElement = document.getElementById('question-list');
+let i = 0;
 
 //socket.io
 let socket = io('http://52.79.121.254/gameAdmin');
@@ -23,4 +24,14 @@ socket.on('score', (ranker) => {
         rankerListElement.appendChild(element);
     });
 });
+socket.on('score', (presentScore) => {
+    let alternativeScore = [];
 
+    for(i of presentScore.grade) {
+        let index = presentScore.grade.indexof(i);
+        alternativeScore.push({
+            grade: i,
+            nickname: presentScore.nickname[index]
+        });
+    }
+});

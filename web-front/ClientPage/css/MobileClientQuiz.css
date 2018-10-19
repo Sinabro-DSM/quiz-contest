@@ -104,8 +104,9 @@ html, body {
 }
 
 #timer {
-    margin-left: 9%;
-    color: #707070;
+    position: relative;
+    left: 13.5%;
+    color: #707070; 
     font-family: NanumSquare;
 }
 
