@@ -13,7 +13,7 @@ function loginClick() {
               console.log(xhr.responseText.message);
               window.location.href = "./DesktopClientWaiting.html";
             } else {
-              alert('request에 뭔가 문제가 있어요.');
+              alert('닉네임이나 코드를 확인해주세요');
             }
           }
     }
