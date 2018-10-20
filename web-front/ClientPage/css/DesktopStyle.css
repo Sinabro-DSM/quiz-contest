@@ -216,8 +216,10 @@ body {
 }
 
 .first-prize-link {
-    transform: translate(0, 10%);
-    flex: 1;
+    padding-top: 150px;
+    color: #707070;
+    font-family: "나눔고딕";
+    font-size: 15pt;
     text-align: center;
 }
 
