@@ -48,8 +48,9 @@ socket.on('QSolution', (response) => {
     cnt += 1;
 
     if (cnt == 7) {
-        location.href="./DesktopClientRanking.html";
+        location.href="../Desktop/DesktopClientRanking.html";
     }
+
 });
 socket.on('plusScore', (getScore) => {
     score += getScore.plusScore;
@@ -78,7 +79,7 @@ function Timer_msg() {
             wrong.display = 'block';
             explanation.display = 'block';
             socket.emit('incorrectReply', 1);
-            return setTimeout( () => {
+            return setTimeout(() => {
                 targetStyle.backgroundColor = "FF70707050";
                 wrong.display = 'none';
                 explanation.display = 'none';
