@@ -33,6 +33,7 @@ let cnt = 0;
 let socket = io('http://52.79.121.254/participant');
 
 socket.on('QSolution', (response) => {
+    setTime = 9;
     console.log(response);
     quizNumberElement.innerText = 'Q' + quizNumber;
     quizBoxElement.innerText = response.question;
@@ -44,7 +45,6 @@ socket.on('QSolution', (response) => {
     quizAnswer = response.answer; 
     console.log("answer: ",quizAnswer);
     quizNumber += 1;
-    setTime = 9;
     cnt += 1;
 
     if (cnt == 7) {
@@ -73,7 +73,7 @@ function Timer_msg() {
 
     setTime--;
 
-    if(setTime < 0) {
+    if(setTime < -1) {
         timerElement.innerHTML = "0초";
         if (userAnswer == defaultButton) {
             wrong.display = 'block';
