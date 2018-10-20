@@ -17,7 +17,7 @@ socket.on('QSolution', (question) => {
     questionListElement.appendChild(element);
 });
 socket.on('score', (ranker) => {
-    console.log(ranker);
+    console.log("ranker: ", ranker);
     rankerListElement.innerText = "";
     ranker.nickname.filter(function(curVal) {
         let element = document.createElement('li');
