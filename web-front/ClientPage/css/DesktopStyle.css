@@ -233,7 +233,7 @@ body {
 
 #timer {
     position: relative;
-    left: 49%;
+    text-align: center;
     color: #707070; 
     font-family: NanumSquare;
     margin-bottom: 4%;
